@@ -12,12 +12,12 @@
     <title>@yield('title',config('app.name', 'Laravel'))</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="http://ued.com/assets/css/all.min.css"> --}}
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" href="http://bt.com/all.min.css">
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1256328_rm84n6rg1z.css">
 </head>
-<body>
+<body class="{{ route_class() }}-body">
     @include('inc._navbar')
     <main id="app" class="main container py-5">
         @include('inc._message')
@@ -26,7 +26,8 @@
     @include('layouts.footer')
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
     @yield('script')
 </body>
 </html>

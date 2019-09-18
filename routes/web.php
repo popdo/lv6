@@ -11,11 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
+
+
+/* ------------
+| 自定义页
+* ------------- */
+
+// 首页
+Route::get('/','PagesController@root')->name('welcome');
+
 
 /* ------------
 | 管理中心
@@ -33,7 +38,6 @@ Route::get('home/blogs', 'HomeController@blogs')->name('home.blogs');
 
 Route::get('options/edit', 'OptionController@edit')->name('options.edit');
 Route::patch('options/update','OptionController@update')->name('options.update');
-// Route::resource('options', 'OptionController',['only'=>['index','update','ddd']]);
 
 /* ------------
 | 用户
